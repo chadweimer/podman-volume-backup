@@ -1,0 +1,6 @@
+[Unit]
+Description=Backup podman volumes
+
+[Service]
+Type=oneshot
+ExecStart=%h/bin/backup-volumes.sh -o %h/backups
