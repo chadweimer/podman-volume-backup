@@ -68,6 +68,9 @@ volumes:
 
 This repository provides a script to easily restore a backup to a container.
 
+> NOTE: The restore script does NOT clear the existing contents of the volume before executing `podman volume import`. It is expected to be run on freshly created volumes.
+
+
 ```bash
 cd ~/backups
 /path/to/restore-volumes.sh --container <container-name>
@@ -83,4 +86,10 @@ You can also specify the path to the location of your backups directory via the 
 
 Run the script as root for rootful containers.
 
-> NOTE: The restore script does NOT clear the existing contents of the volume before executing `podman volume import`. It is expected to be run on freshly created volumes.
+#### Example:
+
+```bash
+podman compose up --no-start
+restore-volumes.sh -c my-container -d ~/backups
+podman compose start
+```
