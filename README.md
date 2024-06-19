@@ -70,7 +70,7 @@ This repository provides a script to easily restore a backup to a container.
 
 ```bash
 cd ~/backups
-~/bin/restore-volumes.sh --container <container-name>
+/path/to/restore-volumes.sh --container <container-name>
 ```
 
 The script uses the same `dev.cwmr.volumes-to-backup` label to determine the volumes to restore.
@@ -78,7 +78,7 @@ By default the script will look in the working directory for the backups.
 You can also specify the path to the location of your backups directory via the `-d|--dir` flag. E.g.,,
 
 ```bash
-~/bin/restore-volumes.sh --container <container-name> --dir /path/to/backups/dir
+/path/to/restore-volumes.sh --container <container-name> --dir /path/to/backups/dir
 ```
 
 Run the script as root for rootful containers.
