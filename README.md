@@ -17,7 +17,7 @@ git clone https://github.com/chadweimer/podman-volume-backup
 ls -s ~/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
 ln -s ~/.config/systemd/user/backup-volumes.timer podman-volume-backup/backup-volumes.timer
 ln -s ~/.config/systemd/user/backup-volumes.service podman-volume-backup/backup-volumes.sevice
-systemctl --user enable backup-volumes.timer
+systemctl --user enable --now backup-volumes.timer
 ```
 
 ### Rootful
@@ -29,7 +29,7 @@ git clone https://github.com/chadweimer/podman-volume-backup
 ls -s /root/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
 ln -s /etc/systemd/system/backup-volumes.timer podman-volume-backup/backup-volumes.timer
 ln -s /etc/systemd/system/backup-volumes.service podman-volume-backup/backup-volumes.sevice
-systemctl enable backup-volumes.timer
+systemctl enable --now backup-volumes.timer
 ```
 
 ## Usage
