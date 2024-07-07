@@ -6,7 +6,7 @@ Leverages `podman volume export` to generate `tar` backups of volumes, then `gzi
 
 ## Installation
 
-The systemd units expect the `backup-volumes.sh` script to be located at `$HOME/bin`.
+The systemd units expect the `backup-volumes.sh` script to be located at `$HOME/.local/bin`.
 
 ### Rootless
 
@@ -14,7 +14,8 @@ Execute the following as the non-root user you use to run your containers:
 
 ```bash
 git clone https://github.com/chadweimer/podman-volume-backup
-ls -s ~/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
+mkdir -p ~/.local/bin
+ls -s ~/.local/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
 ln -s ~/.config/systemd/user/backup-volumes.timer podman-volume-backup/backup-volumes.timer
 ln -s ~/.config/systemd/user/backup-volumes.service podman-volume-backup/backup-volumes.sevice
 systemctl --user enable --now backup-volumes.timer
@@ -26,7 +27,8 @@ Execute the following as root:
 
 ```bash
 git clone https://github.com/chadweimer/podman-volume-backup
-ls -s /root/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
+mkdir -p /root/.local/bin
+ls -s /root/.local/bin/backup-volumes.sh podman-volume-backup/backup-volumes.sh
 ln -s /etc/systemd/system/backup-volumes.timer podman-volume-backup/backup-volumes.timer
 ln -s /etc/systemd/system/backup-volumes.service podman-volume-backup/backup-volumes.sevice
 systemctl enable --now backup-volumes.timer
